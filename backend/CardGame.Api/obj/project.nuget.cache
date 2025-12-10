@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "lBNLTsFdFEM=",
+  "success": true,
+  "projectFilePath": "/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/CardGame.Api.csproj",
+  "expectedPackageFiles": [
+    "/Users/themba/.nuget/packages/microsoft.aspnetcore.openapi/9.0.9/microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
+    "/Users/themba/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
