@@ -1,0 +1,9 @@
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.csproj.AssemblyReference.cache
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/rpswa.dswa.cache.json
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.AssemblyInfoInputs.cache
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.AssemblyInfo.cs
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.csproj.CoreCompileInputs.cache
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/themba/Projects/Dev/multiplayer-card-game/backend/CardGame.Api/obj/Debug/net8.0/CardGame.Api.sourcelink.json
