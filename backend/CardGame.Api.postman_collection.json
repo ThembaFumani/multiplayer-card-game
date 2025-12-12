@@ -1,0 +1,109 @@
+{
+	"info": {
+		"name": "Card Game API",
+		"description": "API endpoints for the multiplayer card game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/games",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"games"
+					]
+				},
+				"description": "Creates a new game, deals 5 cards to each of 6 players, calculates scores, and determines winners."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Game by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/games/{{gameId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"games",
+						"{{gameId}}"
+					]
+				},
+				"description": "Fetches a specific game with all players, cards, scores, and winners."
+			},
+			"response": []
+		},
+		{
+			"name": "List Games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/games?skip=0&take=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"games"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0",
+							"description": "Number of games to skip"
+						},
+						{
+							"key": "take",
+							"value": "10",
+							"description": "Number of games to return"
+						}
+					]
+				},
+				"description": "Lists recent games with pagination."
+			},
+			"response": []
+		},
+		{
+			"name": "Redeal Game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/games/{{gameId}}/redeal",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"games",
+						"{{gameId}}",
+						"redeal"
+					]
+				},
+				"description": "Re-deals cards for an existing game and re-calculates scores."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5183",
+			"type": "string"
+		},
+		{
+			"key": "gameId",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
+

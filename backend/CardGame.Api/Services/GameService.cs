@@ -112,6 +112,7 @@ namespace CardGame.Api.Services
                     {
                         throw new InvalidOperationException("Deck exhausted unexpectedly.");
                     }
+                    card.Player = player;
                     hand.Add(card);
                 }
 
@@ -121,6 +122,7 @@ namespace CardGame.Api.Services
                 player.Cards = hand;
                 player.Score = new Score
                 {
+                    Player = player,
                     HandSum = handSum,
                     SuitProduct = suitProduct,
                     IsWinner = false

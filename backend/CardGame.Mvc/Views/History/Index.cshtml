@@ -1,0 +1,78 @@
+@model CardGame.Mvc.Models.GameListResponse
+@{
+    ViewData["Title"] = "Game History";
+    var skip = (int)ViewBag.Skip;
+    var take = (int)ViewBag.Take;
+    var total = (int)ViewBag.Total;
+    var currentPage = (int)ViewBag.CurrentPage;
+    var totalPages = (int)ViewBag.TotalPages;
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="toast-error">
+        <span>@TempData["Error"]</span>
+        <button onclick="this.parentElement.remove()">×</button>
+    </div>
+}
+
+<div class="history-container">
+    <div class="history-header">
+        <h1>Game History</h1>
+        <a asp-controller="Game" asp-action="Index" class="btn btn-primary">New Game</a>
+    </div>
+
+    @if (Model.Items.Count == 0)
+    {
+        <p>No games found.</p>
+    }
+    else
+    {
+        <div class="games-list">
+            @foreach (var game in Model.Items)
+            {
+                var winners = game.Players?.Where(p => p.Score?.IsWinner == true).ToList() ?? new List<CardGame.Mvc.Models.Player>();
+                <div class="game-card" onclick="window.location.href='@Url.Action("Index", "Game", new { id = game.Id })'">
+                    <div class="game-card-header">
+                        <h3>@game.Name</h3>
+                        <span class="game-date">@game.CreatedAt.ToString("yyyy-MM-dd HH:mm")</span>
+                    </div>
+                    <div class="game-card-info">
+                        <span>@(game.Players?.Count ?? 0) players</span>
+                        @if (winners.Any())
+                        {
+                            <span class="winners">Winners: @string.Join(", ", winners.Select(w => w.Name))</span>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="pagination">
+            @if (currentPage > 1)
+            {
+                <a asp-action="Index" asp-route-skip="@(skip - take)" asp-route-take="@take" class="btn">Previous</a>
+            }
+            else
+            {
+                <span class="btn" style="opacity: 0.5; cursor: not-allowed;">Previous</span>
+            }
+            
+            <span>Page @currentPage of @totalPages (Total: @total)</span>
+            
+            @if (currentPage < totalPages)
+            {
+                <a asp-action="Index" asp-route-skip="@(skip + take)" asp-route-take="@take" class="btn">Next</a>
+            }
+            else
+            {
+                <span class="btn" style="opacity: 0.5; cursor: not-allowed;">Next</span>
+            }
+        </div>
+    }
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/history.css" />
+}
+

@@ -12,6 +12,16 @@ builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IGameServices, GameService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddControllers()
     .AddJsonOptions(o =>
     {
@@ -31,12 +41,14 @@ app.UseExceptionHandler("/error");
 
 app.UseHttpsRedirection();
 
+app.UseCors();
+
 app.MapControllers();
 
 app.Map("/error", (HttpContext ctx) =>
 {
     return Results.Problem(
-        statusCode: StatusCodes.Status500InternalServerError,
+        statusCode: 500,
         title: "Unexpected error",
         detail: "An unexpected error occurred. Please try again.",
         instance: ctx.TraceIdentifier);
